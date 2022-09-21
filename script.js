@@ -1,60 +1,50 @@
 // document.querySelector("button") = () => {}
-
-let canvas = document.querySelector(".canvas");
-canvas.classList.add("canvas");
-
+let button = document.querySelector("button");
+let inputNum;
+let row;
 let mainDiv = document.querySelector(".mainDiv");
 mainDiv.classList.add("mainDiv");
 
-// let square = document.createElement("div");
-// square.classList.add("square");
-// square.style.backgroundColor = randomColorGenerator();
-// mainDiv.appendChild(square);
-// let inputNum;
-// function btnHandler() {
-//     inputNum = parseInt(prompt("Your number from 1 to 100: "));
-// }
+button.addEventListener("click", eventHandler);
 
-let inputNum = parseInt(prompt("Your number from 1 to 100: ")); // not more than 100 limit
-// console.log(input);
+function eventHandler() {
+  while (mainDiv.firstChild) {
+    mainDiv.removeChild(mainDiv.lastChild);
+  }
 
-// let inputNum = function (input) {
-//   if (input < 0) {
-//     inputNow = 0;
-//     // console.log(input);
-//     return inputNow;
-//   }
-//   if (input > 100) {
-//     inputNow = 100;
-//     // console.log(input);
-//     return inputNum;
-//   } else {
-//     // console.log(input);
-//     return input;
-//   }
-// };
-// console.log(inputNum(input));
+  createRows();
+}
+
+function inputBelowHundred() {
+  if (inputNum < 0) {
+    inputNum = 0;
+    return inputNum;
+  }
+  if (inputNum > 100) {
+    inputNum = 100;
+    return inputNum;
+  } else {
+    return inputNum;
+  }
+}
 
 function randomColorGenerator() {
   let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  //   console.log(randomColor);
   return "#" + randomColor;
 }
-let row;
 
 function createRows() {
+  inputNum = parseInt(prompt("Your number from 1 to 100: "));
+  inputBelowHundred();
   let rowsHeight = 960 / inputNum;
   for (i = 0; i <= inputNum - 1; i++) {
     row = document.createElement("div");
     row.classList.add("row");
-    // row.style.backgroundColor = randomColorGenerator();
     row.style.height = rowsHeight + "px";
     mainDiv.appendChild(row);
     createSquare(i);
   }
-  //   console.log(rowsHeight + "px");
 }
-createRows();
 
 function createSquare(i) {
   let squareWidth = 960 / inputNum;
@@ -68,29 +58,13 @@ function createSquare(i) {
     row.appendChild(square);
   }
 }
-// createSquare();
 
 /*
-calculate columns and rows from #?
 
 
 
 
 
-create a # of columns and a # of rows
-
-css grid?
-
-
-function rows (#fromPrompt) {
-    rowHeight = 960 / #fromPrompt
-    loop while # is <= #prompt
-    create div row with rowHeight and full width
-    apply class with children alignment
-    append to main div
-    squares();
-
-}
 
 
 
