@@ -68,6 +68,7 @@ function createSquare(i) {
 
 
 
+
 function squares (#fromPrompt) {
     loop each while <= #from prompt {
     columnWidth = 960 / #fromPrompt
