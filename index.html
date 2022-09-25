@@ -11,60 +11,107 @@
   <body>
     <div class="mainDiv">
       <div class="menu">
-        <button>canvas size</button>
-        <div class="canvasSizePicker hidden">
-          <input type="text" class="input" placeholder="1 - 100" />
-          <input type="button" value="go" class="go" />
+        <div class="menuSubItems">
+          <div>canvas size</div>
+          <div class="canvasSizePicker">
+            <input
+              type="text"
+              class="input"
+              placeholder="1 - 100"
+              onchange="changeSize(this.value)"
+            />
+            <input type="button" value="go" class="go" />
+          </div>
         </div>
-        <button>canvas color</button>
-        <div class="canvasColorPicker hidden">
-          <div class="white clr" style="background-color: white"></div>
-          <div class="black clr" style="background-color: rgb(0, 0, 0)"></div>
-          <div
-            class="blue clr"
-            style="background-color: rgb(32, 83, 137)"
-          ></div>
-          <div class="red clr" style="background-color: rgb(133, 46, 46)"></div>
-          <div
-            class="yellow clr"
-            style="background-color: rgb(255, 242, 0)"
-          ></div>
 
-          <div
-            class="green clr"
-            style="background-color: rgb(52, 123, 30)"
-          ></div>
-        </div>
-        <button>brush color</button>
-        <div class="brushColorPicker hidden">
-          <div class="white clr" style="background-color: white"></div>
-          <div class="black clr" style="background-color: rgb(0, 0, 0)"></div>
-          <div
-            class="blue clr"
-            style="background-color: rgb(32, 83, 137)"
-          ></div>
-          <div class="red clr" style="background-color: rgb(133, 46, 46)"></div>
-          <div
-            class="yellow clr"
-            style="background-color: rgb(255, 242, 0)"
-          ></div>
+        <div class="menuSubItems">
+          <div>canvas color</div>
+          <div class="canvasColorPicker">
+            <div
+              class="white clr"
+              style="background-color: white"
+              onclick="changeBgrColor('white')"
+            ></div>
+            <div
+              class="black clr"
+              style="background-color: rgb(0, 0, 0)"
+              onclick="changeBgrColor('black')"
+            ></div>
+            <div
+              class="blue clr"
+              style="background-color: blue"
+              onclick="changeBgrColor('blue')"
+            ></div>
+            <div
+              class="red clr"
+              style="background-color: rgb(255, 0, 0)"
+              onclick="changeBgrColor('red')"
+            ></div>
+            <div
+              class="yellow clr"
+              style="background-color: yellow"
+              onclick="changeBgrColor('yellow')"
+            ></div>
 
-          <div
-            class="green clr"
-            style="background-color: rgb(52, 123, 30)"
-          ></div>
+            <div
+              class="green clr"
+              style="background-color: green"
+              onclick="changeBgrColor('green')"
+            ></div>
+          </div>
         </div>
-        <button>rainbow mode</button>
-        <button>clear canvas</button>
+        <div class="menuSubItems">
+          <div>brush color</div>
+          <div class="brushColorPicker">
+            <div
+              class="white clr"
+              style="background-color: white"
+              onclick="changeColor('white')"
+            ></div>
+            <div
+              class="black clr"
+              style="background-color: rgb(0, 0, 0)"
+              onclick="changeColor('black')"
+            ></div>
+            <div
+              class="blue clr"
+              style="background-color: blue"
+              onclick="changeColor('blue')"
+            ></div>
+            <div
+              class="red clr"
+              style="background-color: red"
+              onclick="changeColor('red')"
+            ></div>
+            <div
+              class="yellow clr"
+              style="background-color: yellow"
+              onclick="changeColor('yellow')"
+            ></div>
+
+            <div
+              class="green clr"
+              style="background-color: green"
+              onclick="changeColor('green')"
+            ></div>
+          </div>
+        </div>
+
+        <div class="menuSubItems" onclick="changeColor('random')">
+          rainbow mode
+        </div>
+        <div class="menuSubItems clear" onclick="clearBoard()">
+          clear canvas
+        </div>
       </div>
       <div class="centerContainer">
         <div class="header">
           <h1>
             Press "Canvas size" to Enter a Number of Squares to be drawn from 1
-            to 100. Pick up your mouse and enjoy!
+            to 100. Drag your mouse over the canvas and enjoy!
           </h1>
         </div>
-        <div class="canvas"></div>
+        <div class="board"></div>
       </div>
     </div>
   </body>
